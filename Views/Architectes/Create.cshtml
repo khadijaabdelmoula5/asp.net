@@ -1,0 +1,39 @@
+﻿@model ExamanApp.Models.Architecte
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Architecte</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NomArchitecte" class="control-label">First Name</label>
+                <input asp-for="NomArchitecte" class="form-control" required/>
+                <span asp-validation-for="NomArchitecte" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="prenomArchitecte" class="control-label">Last Name</label>
+                <input asp-for="prenomArchitecte" class="form-control" required />
+                <span asp-validation-for="prenomArchitecte" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="telephone" class="control-label">Phone Number</label>
+                <input asp-for="telephone" type="number" class="form-control" required />
+                <span asp-validation-for="telephone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-primary">Back to List</a>
+            </div>
+        </form>
+        <span class="bg-danger text-white">@ViewBag.error </span>
+
+    </div>
+</div>

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<ExamanApp.Models.Projet>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.19.0/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<h1>list of Project</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table table-striped table-bordered">
+    <thead class="table-primary">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Address
+            </th>
+            
+            <th>
+                Description
+            </th>
+            <th>
+                status
+            </th>
+            <th>
+                Client
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomProjet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.addresseProjet)
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StatutProjet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Client.NomClient)
+                </td>
+                <td>
+                    <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@item.ProjetId">Edit</a>
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.ProjetId">Details</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ProjetId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

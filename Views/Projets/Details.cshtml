@@ -1,0 +1,50 @@
+﻿@model ExamanApp.Models.Projet
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Projet</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Name
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NomProjet)
+        </dd>
+        <dt class="col-sm-2">
+            Address
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.addresseProjet)
+        </dd>
+       
+        <dt class="col-sm-2">
+            Description
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            Status
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StatutProjet)
+        </dd>
+        <dt class="col-sm-2">
+            Client
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Client.NomClient)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ProjetId" class="btn btn-danger">Edit</a>
+    <a asp-action="Index" class="btn btn-primary">Back to List</a>
+</div>

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ExamanApp.Models.Architecte>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.19.0/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<div class="container">
+    <h1>list of architects</h1>
+
+    <p>
+        <a class="btn btn-primary" asp-action="Create">Create New</a>
+    </p>
+
+    <table class="table table-striped table-bordered">
+        <thead class="table-primary">
+            <tr>
+                <th>
+                    First Name
+                </th>
+                <th>
+                    Last Name
+                </th>
+                <th>
+                    Phone Number
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NomArchitecte)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.prenomArchitecte)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.telephone)
+                    </td>
+                    <td>
+                        <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@item.ArchitecteId">Edit</a>
+                        <a class="btn btn-info" asp-action="Details" asp-route-id="@item.ArchitecteId">Details</a>
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ArchitecteId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

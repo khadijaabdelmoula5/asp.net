@@ -1,0 +1,56 @@
+﻿@model ExamanApp.Models.Client
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+
+
+<h1>Create</h1>
+
+<h4>Client</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NomClient" class="control-label">First Name</label>
+                <input asp-for="NomClient" class="form-control" required />
+                <span asp-validation-for="NomClient" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="prenom" class="control-label">Last Name</label>
+                <input asp-for="prenom" class="form-control" required />
+                <span asp-validation-for="prenom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="addresse" class="control-label">Address</label>
+                <input asp-for="addresse" class="form-control" required />
+                <span asp-validation-for="addresse" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="telephone" class="control-label">Phone Number</label>
+                <input asp-for="telephone" type="number" class="form-control" required />
+                <span asp-validation-for="telephone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="emailClient" class="control-label">Email</label>
+                <input asp-for="emailClient" type="email"class="form-control" required />
+                <span asp-validation-for="emailClient" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArchitecteId" class="control-label">Architect</label>
+                <select asp-for="ArchitecteId" class="form-control" asp-items="@(new SelectList(ViewBag.ListArchitecte,"ArchitecteId","NomArchitecte"))" required >
+                    <option value="">--Architecte--</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-primary">Back to List</a>
+            </div>
+        </form>
+
+    </div>
+</div>
